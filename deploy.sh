@@ -3,6 +3,6 @@ gcloud builds submit \
 gcloud run deploy gcp-recargas-service \
   --image gcr.io/$GOOGLE_CLOUD_PROJECT/gcp-recargas-service \
   --platform managed \
-  --region "us-central" \
+  --region "us-central1" \
   --allow-unauthenticated \
   --max-instances=1
