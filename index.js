@@ -1,8 +1,18 @@
 const {PubSub} = require('@google-cloud/pubsub');
 const pubsub = new PubSub();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
+
+// Configure CORS - allow all origins for development/testing
+app.use(cors({
+  origin: '*', // In production, replace with your specific domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  credentials: false
+}));
+
 app.use(bodyParser.json());
 const port = process.env.PORT || 8080;
 
